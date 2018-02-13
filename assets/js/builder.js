@@ -59,16 +59,17 @@ window.jQuery(function ($) {
 				css_editor.setValue(res.data.css);
 				css_editor.gotoLine(1);
 			} else {
-				show_error( res.data.message );
+				show_error( res.data.message, res.data.json_error );
 			}
 		});
 
 		req.fail(function(jqXHR, textStatus, errorThrown) {
-			show_error(errorThrown);
+			show_error(errorThrown, false);
 		});
 
-		function show_error ( message ) {
-			css_editor.setValue('/* Error: ' + message + ' */');
+		function show_error ( message, json_error ) {
+			message = ( json_error ? 'JSON parse error: ' : 'Error: ' ) + message;
+			css_editor.setValue('/* ' + message + ' */');
 		}
 	});
 
@@ -77,7 +78,7 @@ window.jQuery(function ($) {
 	$('#select_css_result').on('click', function (evt) {
 		css_editor.session.selection.selectAll();
 		//css_editor.session.selection.moveCursorDown();
-		css_editor.focus()
+		css_editor.focus();
 	})
 
 	reset_fields();
@@ -108,5 +109,4 @@ window.jQuery(function ($) {
 		sending = false;
 		$blocker.addClass('dn');
 	}
-
 });

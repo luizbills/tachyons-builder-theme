@@ -7,7 +7,17 @@ function builder_get_default_config () {
 }
 
 function builder_get_default_tachyons () {
-	return file_get_contents( WP_Modular_CSS::get_plugin_uploads_folder() . 'style.css' );
+	$file_name = 'tachyons-' . WP_Modular_CSS::TACHYONS_VERSION . '.css';
+	$file_path = WP_Modular_CSS::get_plugin_uploads_folder() . $file_name;
+
+	if ( ! file_exists( $file_path ) ) {
+		$config_json = builder_get_default_config();
+		$config = WP_Modular_CSS::parse_json( $config_json, false );
+		$builder = new WP_Modular_CSS_Builder( $config );
+		WP_Modular_CSS::write_file( $file_name, $builder->get_output() );
+	}
+
+	return file_get_contents( $file_path );
 }
 
 //add_action( 'wp_ajax_nopriv_build_tachyons', 'builder_ajax_build_tachyons' );
@@ -31,8 +41,7 @@ function builder_ajax_build_tachyons () {
 		$css = $builder->get_output( $minify_css );
 
 		wp_send_json_success( [ 'css' => $css ] );
-
 	} else {
-		wp_send_json_error( [ 'message' => json_last_error_msg() ] );
+		wp_send_json_error( [ 'message' => json_last_error_msg(), 'json_error' => true ] );
 	}
 }
