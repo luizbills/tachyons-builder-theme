@@ -1,0 +1,30 @@
+/*
+Theme Name: Tachyons Builder
+Theme URI: https://github.com/luizbills/tachyons-builder
+Author: Luiz Bills
+Author URI: https://www.luizpb.com
+Description: Theme used in https://tachyons.luizpb.com
+Version: 1.0
+License: GPLv2
+*/
+
+.sans-serif {
+	font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
+}
+
+.no-resize {
+	resize: none;
+}
+
+#config_json,
+pre {
+	tab-size: 4;
+}
+
+.absolute--center {
+	top: 50%;
+	left: 50%;
+	-webkit-transform: translate(-50%, -50%);
+	-ms-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+}
