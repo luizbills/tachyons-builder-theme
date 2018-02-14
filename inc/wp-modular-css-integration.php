@@ -20,7 +20,7 @@ function builder_get_default_tachyons () {
 	return file_get_contents( $file_path );
 }
 
-//add_action( 'wp_ajax_nopriv_build_tachyons', 'builder_ajax_build_tachyons' );
+add_action( 'wp_ajax_nopriv_build_tachyons', 'builder_ajax_build_tachyons' );
 add_action( 'wp_ajax_build_tachyons', 'builder_ajax_build_tachyons' );
 function builder_ajax_build_tachyons () {
 	if ( $_SERVER['REQUEST_METHOD'] !== 'POST' ) wp_send_json_error( [ 'message' => 'Invalid request type (you must use POST).' ] );;
@@ -28,7 +28,6 @@ function builder_ajax_build_tachyons () {
 	check_ajax_referer( 'build_tachyons', 'security' );
 
 	$config_json = ! empty( $_REQUEST['config_json'] ) ? urldecode( $_REQUEST['config_json'] ) : '';
-	//error_log( print_r( $config_json, true ) );
 	$config = WP_Modular_CSS::parse_json( $config_json, false );
 
 	if ( false !== $config ) {

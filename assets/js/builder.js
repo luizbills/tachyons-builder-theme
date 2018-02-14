@@ -68,7 +68,7 @@ window.jQuery(function ($) {
 		});
 
 		function show_error ( message, json_error ) {
-			message = ( json_error ? 'JSON parse error: ' : 'Error: ' ) + message;
+			message = ( json_error ? 'JSON parse error: ' : 'Server error: ' ) + message;
 			css_editor.setValue('/* ' + message + ' */');
 		}
 	});
