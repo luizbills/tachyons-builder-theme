@@ -31,13 +31,8 @@ function builder_ajax_build_tachyons () {
 	$config = WP_Modular_CSS::parse_json( $config_json, false );
 
 	if ( false !== $config ) {
-		$modular_css_options = wp_get_admin_page( 'wp-modular-css-settings' );
-		$value = $modular_css_options->get_field_value( 'config_json' );
-		$minify_css = $modular_css_options->get_field_value( 'minify' ) === 'on';
-		$filename = 'style.css';
 		$builder = new WP_Modular_CSS_Builder( $config );
-
-		$css = $builder->get_output( $minify_css );
+		$css = $builder->get_output( false );
 
 		wp_send_json_success( [ 'css' => $css ] );
 	} else {
