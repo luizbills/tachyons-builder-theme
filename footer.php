@@ -1,12 +1,13 @@
 <?php
 /**
  * The template for displaying the footer
- *
- * untheme - a WordPress theme for developers
- * by Tania Rascia
- *
  */
 ?>
+		<?php do_action( 'az_inside_content_end' ); ?>
+
+	</div>
+
+	<?php do_action( 'az_after_content' ); ?>
 
 	<?php wp_footer(); ?>
 

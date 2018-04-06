@@ -1,21 +1,21 @@
 <?php
 /**
  * The template for displaying the header
- *
- * untheme - a simple, concise WordPress theme for developers
- * by Tania Rascia
- *
  */
-?><!doctype html>
+?>
+<!doctype html>
 <html <?php language_attributes(); ?>>
 
 <head>
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta http-equiv="x-ua-compatible" content="ie=edge">
 	<?php wp_head(); ?>
 </head>
 
 <body <?php body_class(); ?>>
 
-    <?php //wp_nav_menu( array( 'theme_location' => 'primary' ) ); ?>
+	<?php do_action( 'az_before_content' ); ?>
+
+	<div id="content" class="sans-serif">
+
+		<?php do_action( 'az_inside_content_begin' ); ?>

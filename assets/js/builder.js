@@ -22,9 +22,12 @@ window.jQuery(function ($) {
 	// css preview editor
 	var css_editor = ace.edit("css_result");
 
+	css_editor.session.setUseWorker(false)
 	css_editor.session.setMode("ace/mode/css");
+
 	css_editor.renderer.setShowGutter(false);
 	css_editor.setReadOnly(true);
+
 	$(css_editor.container)
 		.addClass(editor_classes)
 		.css('font-size', editor_font_size);
