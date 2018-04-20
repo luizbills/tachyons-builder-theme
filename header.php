@@ -16,6 +16,6 @@
 
 	<?php do_action( 'az_before_content' ); ?>
 
-	<div id="content" class="sans-serif">
+	<div id="content" class="sans-serif bg-white overflow-hidden">
 
 		<?php do_action( 'az_inside_content_begin' ); ?>
