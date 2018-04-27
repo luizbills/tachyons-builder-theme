@@ -48,14 +48,10 @@ window.jQuery(function ($) {
 			method: 'post',
 			timeout: 15 * 1000,
 			data: args,
-			beforeSend: function () {
-				block_page();
-			}
+			beforeSend: block_page
 		} );
 
-		req.always(function () {
-			unblock_page();
-		})
+		req.always(unblock_page)
 
 		req.done(function (res) {
 			if ( res.success === true ) {
