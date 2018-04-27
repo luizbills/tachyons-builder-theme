@@ -6,7 +6,7 @@
 	<p class="mt0 mb3">default value: <code class="bg-moon-gray br2 ph1">null</code><br>
 	Adds a prefix in all tachyons classes.</p>
 
-	<h3 class="ma0 f4 b"><code>debug, debug-children and debug-grid</code></h3>
+	<h3 class="ma0 f4 b"><code>debug-all, debug-children and debug-grid</code></h3>
 	<p class="mt0 mb3">default value: <code class="bg-moon-gray br2 ph1">false</code><br>
 		If <code>true</code>, respectively includes
 		<a target="_blank" rel="nofollow"  class="link" href="https://github.com/luizbills/wp-modular-css/blob/master/css-modules/tachyons-default/debug.css">debug</a>,
